@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="<?= base_url('assets/bootstrap5/css/bootstrap.min.css') ?>">
   <link rel="stylesheet" href="<?= base_url('assets/bootstrap5/css/bootstrap-grid.min.css') ?>">
   <link rel="stylesheet" href="<?= base_url('assets/fontawesome5/css/all.min.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/datatables/css/jquery.dataTables.min.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/sweetalert2/dist/sweetalert2.min.css') ?>">
 
   <title><?= $title; ?></title>
 </head>

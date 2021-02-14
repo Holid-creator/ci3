@@ -48,18 +48,26 @@ class Buku extends CI_Controller
     if (isset($_POST['add'])) {
       $inputan = $this->input->post(null, true);
       $this->buku->add($inputan);
-    } else if (isset($_POST['edit'])) {
-      $edit = $this->input->post(null, true);
-      $this->buku->edit($edit);
+      if ($this->db->affected_rows() > 0) {
+        $this->session->set_flashdata('success', 'Data Berhasil Tambahkan');
+        redirect('buku');
+      } else if (isset($_POST['edit'])) {
+        $edit = $this->input->post(null, true);
+        $this->buku->edit($edit);
+      }
+      if ($this->db->affected_rows() > 0) {
+        $this->session->set_flashdata('success', 'Data Berhasil Diubah');
+        redirect('buku');
+      }
     }
-    echo "<script>alert('Data Berhasil Ditambahkan')</script>";
-    redirect('buku');
   }
 
   public function del($id)
   {
     $this->buku->del($id);
-    echo "<script>alert('Data Berhasil Dihapus')</script>";
+    if ($this->db->affected_rows() > 0) {
+      $this->session->set_flashdata('success', 'Data Berhasil Dihapus');
+    }
     redirect('buku');
   }
 }
